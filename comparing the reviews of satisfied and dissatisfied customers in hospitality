@@ -1,0 +1,710 @@
+#read the dataset file
+Reviews <- read.csv("tourist_accommodation_reviews.csv",header = TRUE)
+#inspect the dataset
+names(Reviews)
+head(Reviews)
+tail(Reviews)
+summary(Reviews)
+str(Reviews)
+dim(Reviews)
+#Select the 30 Hotels from the tourist_accommodation_reviews dataset.
+Mr_Kobis <- subset(Reviews,
+                     Hotel.Restaurant.name=="Mr Kobis")
+Amalfi <- subset(Reviews,
+                        Hotel.Restaurant.name=="Amalfi")
+Anchor_Inn <- subset(Reviews,
+                   Hotel.Restaurant.name=="Anchor Inn")
+Tony <- subset(Reviews,
+                    Hotel.Restaurant.name=="Tony Seafood Restaurant")
+Lucky_13 <- subset(Reviews,
+                       Hotel.Restaurant.name=="Lucky 13 Sandwich Rawai")
+Buffalo_Steak_House <- subset(Reviews,
+                   Hotel.Restaurant.name=="Buffalo Steak House - Karon Beach")
+Salvatore <- subset(Reviews,
+                  Hotel.Restaurant.name=="Salvatore's restaurant")
+Shakers <-subset(Reviews,
+                 Hotel.Restaurant.name=="Shakers")
+Boulangerie_Chez <-subset(Reviews,
+                       Hotel.Restaurant.name=="Boulangerie Chez Nous")
+Mai_Khao_Seafood <- subset(Reviews,
+                         Hotel.Restaurant.name=="Mai Khao Seafood Local Restaurant")
+Modena <- subset(Reviews,
+                     Hotel.Restaurant.name=="Modena")
+Il_Cappero <- subset(Reviews,
+                         Hotel.Restaurant.name=="Il Cappero")
+After_Beach <- subset(Reviews,
+                        Hotel.Restaurant.name=="After Beach Bar")
+The_Cook <- subset(Reviews,
+                            Hotel.Restaurant.name=="The Cook")
+Skye_Lake <- subset(Reviews,
+                    Hotel.Restaurant.name=="Skye Lake Club - Laguna, Phuket")
+Fuji_Japanese_Restaurant  <- subset(Reviews,
+                     Hotel.Restaurant.name=="Fuji Japanese Restaurant - Central Festival Phuket")
+The_Sandwich_Club <- subset(Reviews,
+                  Hotel.Restaurant.name=="The Sandwich Club")
+Da_Mario_Karon <- subset(Reviews,
+                           Hotel.Restaurant.name=="Da Mario Karon")
+Subparod_Restaurant <- subset(Reviews,
+                     Hotel.Restaurant.name=="Subparod Restaurant")
+D_Wine_Italian <- subset(Reviews,
+                      Hotel.Restaurant.name=="D Wine Italian Bistro & Wine Bar")
+Fuji_Japanese_Restaurant <- subset(Reviews,
+                        Hotel.Restaurant.name=="Fuji Japanese Restaurant - Jungceylon Patong")
+Royal_India <- subset(Reviews,
+                    Hotel.Restaurant.name=="Royal India Restaurant Patong")
+No_24_Bar <- subset(Reviews,
+                         Hotel.Restaurant.name=="No. 24 Bar & Restaurant")
+Kusuma_Seafood <- subset(Reviews,
+                    Hotel.Restaurant.name=="Kusuma Seafood")
+Wine_Connection_Deli <- subset(Reviews,
+                  Hotel.Restaurant.name=="Wine Connection Deli & Bistro - Chalong, Phuket")
+Buffalo_Steak_House <- subset(Reviews,
+                      Hotel.Restaurant.name=="Buffalo Steak House - Kata Plaza")
+Albatross_Cafe <- subset(Reviews,
+                            Hotel.Restaurant.name=="Albatross Cafe")
+Chekhoff_Restaurant <- subset(Reviews,
+                    Hotel.Restaurant.name=="Chekhoff Restaurant and Bar")
+PaPa_Restaurant <- subset(Reviews,
+                    Hotel.Restaurant.name=="PaPa Restaurant")
+Surin_Bay <- subset(Reviews,
+                 Hotel.Restaurant.name=="Surin Bay Inn Restaurant")
+#inspect the review column in the dataset
+head(Mr_Kobis$Review)
+head(Amalfi$Review)
+head(Anchor_Inn$Review)
+head(Tony$Review)
+head(Lucky_13$Review)
+head(Buffalo_Steak_House$Review)
+head(Salvatore$Review)
+head(Shakers$Review)
+head(Boulangerie_Chez$Review)
+head(Mai_Khao_Seafood$Review)
+head(Modena$Review)
+head(Il_Cappero$Review)
+head(After_Beach$Review)
+head(The_Cook$Review)
+head(Skye_Lake$Review)
+head(Fuji_Japanese_Restaurant $Review)
+head(The_Sandwich_Club$Review)
+head(Da_Mario_Karon$Review)
+head(Subparod_Restaurant$Review)
+head(D_Wine_Italian$Review)
+head(Fuji_Japanese_Restaurant$Review)
+head(Royal_India$Review)
+head(No_24_Bar$Review)
+head(Kusuma_Seafood$Review)
+head(Wine_Connection_Deli$Review)
+head(Buffalo_Steak_House$Review)
+head(Albatross_Cafe$Review)
+head(Chekhoff_Restaurant$Review)
+head(PaPa_Restaurant$Review)
+head(Surin_Bay$Review)
+#Making the text vectors of 30 hotels.
+review_mrkobis<-Mr_Kobis$Review
+review_Amalfi<-Amalfi$Review
+review_AnchorInn<-Anchor_Inn$Review
+review_Tony<-Tony$Review
+review_Lucky13<-Lucky_13$Review
+review_BuffaloSteakHouse<-Buffalo_Steak_House$Review
+review_Salvatore<-Salvatore$Review
+review_shakers<-Shakers$Review
+review_Boulangerie_Chez_Nous<-Boulangerie_Chez$Review
+review_Mai_Khao_Seafood<-Mai_Khao_Seafood$Review
+review_Modena<-Modena$Review
+review_Il_Cappero<-Il_Cappero$Review
+review_After_Beach<-After_Beach$Review
+review_The_Cook<-The_Cook$Review
+review_Skye_Lake<-Skye_Lake$Review
+review_Fuji_Japanese_Restaurant <-Fuji_Japanese_Restaurant $Review
+review_The_Sandwich_Club<-The_Sandwich_Club$Review
+review_Da_Mario_Karon<-Da_Mario_Karon$Review
+review_Subparod_Restaurant<-Subparod_Restaurant$Review
+review_D_Wine_Italian<-D_Wine_Italian$Review
+review_Fuji_Japanese_Restaurant<-Fuji_Japanese_Restaurant$Review
+review_Royal_India<-Royal_India$Review
+review_No_24_Bar<-No_24_Bar$Review
+review_Kusuma_Seafood<-Kusuma_Seafood$Review
+review_Wine_Connection_Deli<-Wine_Connection_Deli$Review
+review_Buffalo_Steak_House<-Buffalo_Steak_House$Review
+review_Albatross_Cafe<-Albatross_Cafe$Review
+review_Chekhoff_Restaurant<-Chekhoff_Restaurant$Review
+review_PaPa_Restaurant<-PaPa_Restaurant$Review
+review_Surin_Bay<-Surin_Bay$Review
+#convert all text to lowercase
+
+review_mrkobis<-tolower(review_mrkobis)
+review_Amalfi<-tolower(review_Amalfi)
+review_AnchorInn<-tolower(review_AnchorInn)
+review_Tony<-tolower(review_Tony)
+review_Lucky13<-tolower(review_Lucky13)
+review_BuffaloSteakHouse<-tolower(review_BuffaloSteakHouse)
+review_Salvatore<-tolower(review_Salvatore)
+review_shakers<-tolower(review_shakers)
+review_Boulangerie_Chez_Nous<-tolower(review_Boulangerie_Chez_Nous)
+review_Mai_Khao_Seafood<-tolower(review_Mai_Khao_Seafood)
+review_Modena<-tolower(review_Modena)
+review_Il_Cappero<-tolower(review_Il_Cappero)
+review_After_Beach<-tolower(review_After_Beach)
+review_The_Cook<-tolower(review_The_Cook)
+review_Skye_Lake<-tolower(review_Skye_Lake)
+review_Fuji_Japanese_Restaurant <-tolower(review_Fuji_Japanese_Restaurant )
+review_The_Sandwich_Club<-tolower(review_The_Sandwich_Club)
+review_Da_Mario_Karon<-tolower(review_Da_Mario_Karon)
+review_Subparod_Restaurant<-tolower(review_Subparod_Restaurant)
+review_D_Wine_Italian<-tolower(review_D_Wine_Italian)
+review_Fuji_Japanese_Restaurant<-tolower(review_Fuji_Japanese_Restaurant)
+review_Royal_India<-tolower(review_Royal_India)
+review_No_24_Bar<-tolower(review_No_24_Bar)
+review_Kusuma_Seafood<-tolower(review_Kusuma_Seafood)
+review_Wine_Connection_Deli<-tolower(review_Wine_Connection_Deli)
+review_Buffalo_Steak_House<-tolower(review_Buffalo_Steak_House)
+review_Albatross_Cafe<-tolower(review_Albatross_Cafe)
+review_Chekhoff_Restaurant<-tolower(review_Chekhoff_Restaurant)
+review_PaPa_Restaurant<-tolower(review_PaPa_Restaurant)
+review_Surin_Bay<-tolower(review_Surin_Bay)
+#remove the links from the reviews
+review_mrkobis <- gsub("http\\S+\\s*", "", review_mrkobis)
+review_Amalfi<- gsub("http\\S+\\s*", "", review_Amalfi)
+review_AnchorInn<-gsub("http\\S+\\s*", "",review_AnchorInn)
+review_Tony<-gsub("http\\S+\\s*", "",review_Tony)
+review_Lucky13<-gsub("http\\S+\\s*", "",review_Lucky13)
+review_BuffaloSteakHouse<-gsub("http\\S+\\s*", "",review_BuffaloSteakHouse)
+review_Salvatore<-gsub("http\\S+\\s*", "",review_Salvatore)
+review_shakers<-gsub("http\\S+\\s*", "",review_shakers)
+review_Boulangerie_Chez_Nous<-gsub("http\\S+\\s*", "",review_Boulangerie_Chez_Nous)
+review_Mai_Khao_Seafood<-gsub("http\\S+\\s*", "",review_Mai_Khao_Seafood)
+review_Modena<-gsub("http\\S+\\s*", "",review_Modena)
+review_Il_Cappero<-gsub("http\\S+\\s*", "",review_Il_Cappero)
+review_After_Beach<-gsub("http\\S+\\s*", "",review_After_Beach)
+review_The_Cook<-gsub("http\\S+\\s*", "",review_The_Cook)
+review_Skye_Lake<-gsub("http\\S+\\s*", "",review_Skye_Lake)
+review_Fuji_Japanese_Restaurant <-gsub("http\\S+\\s*", "",review_Fuji_Japanese_Restaurant )
+review_The_Sandwich_Club<-gsub("http\\S+\\s*", "",review_The_Sandwich_Club)
+review_Da_Mario_Karon<-gsub("http\\S+\\s*", "",review_Da_Mario_Karon)
+review_Subparod_Restaurant<-gsub("http\\S+\\s*", "",review_Subparod_Restaurant)
+review_D_Wine_Italian<-gsub("http\\S+\\s*", "",review_D_Wine_Italian)
+review_Fuji_Japanese_Restaurant<-gsub("http\\S+\\s*", "",review_Fuji_Japanese_Restaurant)
+review_Royal_India<-gsub("http\\S+\\s*", "",review_Royal_India)
+review_No_24_Bar<-gsub("http\\S+\\s*", "",review_No_24_Bar)
+review_Kusuma_Seafood<-gsub("http\\S+\\s*", "",review_Kusuma_Seafood)
+review_Wine_Connection_Deli<-gsub("http\\S+\\s*", "",review_Wine_Connection_Deli)
+review_Buffalo_Steak_House<-gsub("http\\S+\\s*", "",review_Buffalo_Steak_House)
+review_Albatross_Cafe<-gsub("http\\S+\\s*", "",review_Albatross_Cafe)
+review_Chekhoff_Restaurant<-gsub("http\\S+\\s*", "",review_Chekhoff_Restaurant)
+review_PaPa_Restaurant<-gsub("http\\S+\\s*", "",review_PaPa_Restaurant)
+review_Surin_Bay<-gsub("http\\S+\\s*", "",review_Surin_Bay)
+#remove the punctuation
+review_mrkobis <- gsub("[[:punct:]]", "", review_mrkobis)
+review_Amalfi<- gsub("[[:punct:]]", "", review_Amalfi)
+review_AnchorInn<-gsub("[[:punct:]]", "", review_AnchorInn)
+review_Tony<-gsub("[[:punct:]]", "", review_Tony)
+review_Lucky13<-gsub("[[:punct:]]", "", review_Lucky13)
+review_BuffaloSteakHouse<-gsub("[[:punct:]]", "", review_BuffaloSteakHouse)
+review_Salvatore<-gsub("[[:punct:]]", "", review_Salvatore)
+review_shakers<-gsub("[[:punct:]]", "", review_shakers)
+review_Boulangerie_Chez_Nous<-gsub("[[:punct:]]", "", review_Boulangerie_Chez_Nous)
+review_Mai_Khao_Seafood<-gsub("[[:punct:]]", "", review_Mai_Khao_Seafood)
+review_Modena<-gsub("[[:punct:]]", "", review_Modena)
+review_Il_Cappero<-gsub("[[:punct:]]", "", review_Il_Cappero)
+review_After_Beach<-gsub("[[:punct:]]", "", review_After_Beach)
+review_The_Cook<-gsub("[[:punct:]]", "", review_The_Cook)
+review_Skye_Lake<-gsub("[[:punct:]]", "", review_Skye_Lake)
+review_Fuji_Japanese_Restaurant <-gsub("[[:punct:]]", "", review_Fuji_Japanese_Restaurant )
+review_The_Sandwich_Club<-gsub("[[:punct:]]", "", review_The_Sandwich_Club)
+review_Da_Mario_Karon<-gsub("[[:punct:]]", "", review_Da_Mario_Karon)
+review_Subparod_Restaurant<-gsub("[[:punct:]]", "", review_Subparod_Restaurant)
+review_D_Wine_Italian<-gsub("[[:punct:]]", "", review_D_Wine_Italian)
+review_Fuji_Japanese_Restaurant<-gsub("[[:punct:]]", "", review_Fuji_Japanese_Restaurant)
+review_Royal_India<-gsub("[[:punct:]]", "", review_Royal_India)
+review_No_24_Bar<-gsub("[[:punct:]]", "", review_No_24_Bar)
+review_Kusuma_Seafood<-gsub("[[:punct:]]", "", review_Kusuma_Seafood)
+review_Wine_Connection_Deli<-gsub("[[:punct:]]", "", review_Wine_Connection_Deli)
+review_Buffalo_Steak_House<-gsub("[[:punct:]]", "", review_Buffalo_Steak_House)
+review_Albatross_Cafe<-gsub("[[:punct:]]", "", review_Albatross_Cafe)
+review_Chekhoff_Restaurant<-gsub("[[:punct:]]", "", review_Chekhoff_Restaurant)
+review_PaPa_Restaurant<-gsub("[[:punct:]]", "", review_PaPa_Restaurant)
+review_Surin_Bay<-gsub("[[:punct:]]", "", review_Surin_Bay)
+#remove the digits
+review_mrkobis <- gsub("[[:digit:]]", "", review_mrkobis)
+review_Amalfi<- gsub("[[:digit:]]", "", review_Amalfi)
+review_AnchorInn<-gsub("[[:digit:]]", "", review_AnchorInn)
+review_Tony<-gsub("[[:digit:]]", "", review_Tony)
+review_Lucky13<-gsub("[[:digit:]]", "", review_Lucky13)
+review_BuffaloSteakHouse<-gsub("[[:digit:]]", "", review_BuffaloSteakHouse)
+review_Salvatore<-gsub("[[:digit:]]", "", review_Salvatore)
+review_shakers<-gsub("[[:digit:]]", "", review_shakers)
+review_Boulangerie_Chez_Nous<-gsub("[[:digit:]]", "", review_Boulangerie_Chez_Nous)
+review_Mai_Khao_Seafood<-gsub("[[:digit:]]", "", review_Mai_Khao_Seafood)
+review_Modena<-gsub("[[:digit:]]", "", review_Modena)
+review_Il_Cappero<-gsub("[[:digit:]]", "", review_Il_Cappero)
+review_After_Beach<-gsub("[[:digit:]]", "", review_After_Beach)
+review_The_Cook<-gsub("[[:digit:]]", "", review_The_Cook)
+review_Skye_Lake<-gsub("[[:digit:]]", "", review_Skye_Lake)
+review_Fuji_Japanese_Restaurant <-gsub("[[:digit:]]", "", review_Fuji_Japanese_Restaurant )
+review_The_Sandwich_Club<-gsub("[[:digit:]]", "", review_The_Sandwich_Club)
+review_Da_Mario_Karon<-gsub("[[:digit:]]", "", review_Da_Mario_Karon)
+review_Subparod_Restaurant<-gsub("[[:digit:]]", "", review_Subparod_Restaurant)
+review_D_Wine_Italian<-gsub("[[:digit:]]", "", review_D_Wine_Italian)
+review_Fuji_Japanese_Restaurant<-gsub("[[:digit:]]", "", review_Fuji_Japanese_Restaurant)
+review_Royal_India<-gsub("[[:digit:]]", "", review_Royal_India)
+review_No_24_Bar<-gsub("[[:digit:]]", "", review_No_24_Bar)
+review_Kusuma_Seafood<-gsub("[[:digit:]]", "", review_Kusuma_Seafood)
+review_Wine_Connection_Deli<-gsub("[[:digit:]]", "", review_Wine_Connection_Deli)
+review_Buffalo_Steak_House<-gsub("[[:digit:]]", "", review_Buffalo_Steak_House)
+review_Albatross_Cafe<-gsub("[[:digit:]]", "", review_Albatross_Cafe)
+review_Chekhoff_Restaurant<-gsub("[[:digit:]]", "", review_Chekhoff_Restaurant)
+review_PaPa_Restaurant<-gsub("[[:digit:]]", "", review_PaPa_Restaurant)
+review_Surin_Bay<-gsub("[[:digit:]]", "", review_Surin_Bay)
+#.Remove leading blank spaces at the beginning from the reviews
+review_mrkobis <- gsub("^ ", "", review_mrkobis)
+review_Amalfi<- gsub("^ ", "", review_Amalfi)
+review_AnchorInn<-gsub("^ ", "", review_AnchorInn)
+review_Tony<-gsub("^ ", "", review_Tony)
+review_Lucky13<-gsub("^ ", "", review_Lucky13)
+review_BuffaloSteakHouse<-gsub("^ ", "", review_BuffaloSteakHouse)
+review_Salvatore<-gsub("^ ", "", review_Salvatore)
+review_shakers<-gsub("^ ", "", review_shakers)
+review_Boulangerie_Chez_Nous<-gsub("^ ", "", review_Boulangerie_Chez_Nous)
+review_Mai_Khao_Seafood<-gsub("^ ", "", review_Mai_Khao_Seafood)
+review_Modena<-gsub("^ ", "", review_Modena)
+review_Il_Cappero<-gsub("^ ", "", review_Il_Cappero)
+review_After_Beach<-gsub("^ ", "", review_After_Beach)
+review_The_Cook<-gsub("^ ", "", review_The_Cook)
+review_Skye_Lake<-gsub("^ ", "", review_Skye_Lake)
+review_Fuji_Japanese_Restaurant <-gsub("^ ", "", review_Fuji_Japanese_Restaurant )
+review_The_Sandwich_Club<-gsub("^ ", "", review_The_Sandwich_Club)
+review_Da_Mario_Karon<-gsub("^ ", "", review_Da_Mario_Karon)
+review_Subparod_Restaurant<-gsub("^ ", "", review_Subparod_Restaurant)
+review_D_Wine_Italian<-gsub("^ ", "", review_D_Wine_Italian)
+review_Fuji_Japanese_Restaurant<-gsub("^ ", "", review_Fuji_Japanese_Restaurant)
+review_Royal_India<-gsub("^ ", "", review_Royal_India)
+review_No_24_Bar<-gsub("^ ", "", review_No_24_Bar)
+review_Kusuma_Seafood<-gsub("^ ", "", review_Kusuma_Seafood)
+review_Wine_Connection_Deli<-gsub("^ ", "", review_Wine_Connection_Deli)
+review_Buffalo_Steak_House<-gsub("^ ", "", review_Buffalo_Steak_House)
+review_Albatross_Cafe<-gsub("^ ", "", review_Albatross_Cafe)
+review_Chekhoff_Restaurant<-gsub("^ ", "", review_Chekhoff_Restaurant)
+review_PaPa_Restaurant<-gsub("^ ", "", review_PaPa_Restaurant)
+review_Surin_Bay<-gsub("^ ", "", review_Surin_Bay)
+#Remove blank spaces at the end from the reviews
+review_mrkobis <- gsub(" $", "", review_mrkobis)
+review_Amalfi<- gsub(" $", "", review_Amalfi)
+review_AnchorInn<-gsub(" $", "", review_AnchorInn)
+review_Tony<-gsub(" $", "", review_Tony)
+review_Lucky13<-gsub(" $", "", review_Lucky13)
+review_BuffaloSteakHouse<-gsub(" $", "", review_BuffaloSteakHouse)
+review_Salvatore<-gsub(" $", "", review_Salvatore)
+review_shakers<-gsub(" $", "", review_shakers)
+review_Boulangerie_Chez_Nous<-gsub(" $", "", review_Boulangerie_Chez_Nous)
+review_Mai_Khao_Seafood<-gsub(" $", "", review_Mai_Khao_Seafood)
+review_Modena<-gsub(" $", "", review_Modena)
+review_Il_Cappero<-gsub(" $", "", review_Il_Cappero)
+review_After_Beach<-gsub(" $", "", review_After_Beach)
+review_The_Cook<-gsub(" $", "", review_The_Cook)
+review_Skye_Lake<-gsub(" $", "", review_Skye_Lake)
+review_Fuji_Japanese_Restaurant <-gsub(" $", "", review_Fuji_Japanese_Restaurant )
+review_The_Sandwich_Club<-gsub(" $", "", review_The_Sandwich_Club)
+review_Da_Mario_Karon<-gsub(" $", "", review_Da_Mario_Karon)
+review_Subparod_Restaurant<-gsub(" $", "", review_Subparod_Restaurant)
+review_D_Wine_Italian<-gsub(" $", "", review_D_Wine_Italian)
+review_Fuji_Japanese_Restaurant<-gsub(" $", "", review_Fuji_Japanese_Restaurant)
+review_Royal_India<-gsub(" $", "", review_Royal_India)
+review_No_24_Bar<-gsub(" $", "", review_No_24_Bar)
+review_Kusuma_Seafood<-gsub(" $", "", review_Kusuma_Seafood)
+review_Wine_Connection_Deli<-gsub(" $", "", review_Wine_Connection_Deli)
+review_Buffalo_Steak_House<-gsub(" $", "", review_Buffalo_Steak_House)
+review_Albatross_Cafe<-gsub(" $", "", review_Albatross_Cafe)
+review_Chekhoff_Restaurant<-gsub(" $", "", review_Chekhoff_Restaurant)
+review_PaPa_Restaurant<-gsub(" $", "", review_PaPa_Restaurant)
+review_Surin_Bay<-gsub(" $", "", review_Surin_Bay)
+#Remove "tablet" word from the reviews
+review_mrkobis <- gsub("tablet", "", review_mrkobis)
+review_Amalfi<- gsub("tablet", "", review_Amalfi)
+review_AnchorInn<-gsub("tablet", "", review_AnchorInn)
+review_Tony<-gsub("tablet", "", review_Tony)
+review_Lucky13<-gsub("tablet", "", review_Lucky13)
+review_BuffaloSteakHouse<-gsub("tablet", "", review_BuffaloSteakHouse)
+review_Salvatore<-gsub("tablet", "", review_Salvatore)
+review_shakers<-gsub("tablet", "", review_shakers)
+review_Boulangerie_Chez_Nous<-gsub("tablet", "", review_Boulangerie_Chez_Nous)
+review_Mai_Khao_Seafood<-gsub("tablet", "", review_Mai_Khao_Seafood)
+review_Modena<-gsub("tablet", "", review_Modena)
+review_Il_Cappero<-gsub("tablet", "", review_Il_Cappero)
+review_After_Beach<-gsub("tablet", "", review_After_Beach)
+review_The_Cook<-gsub("tablet", "", review_The_Cook)
+review_Skye_Lake<-gsub("tablet", "", review_Skye_Lake)
+review_Fuji_Japanese_Restaurant <-gsub("tablet", "", review_Fuji_Japanese_Restaurant )
+review_The_Sandwich_Club<-gsub("tablet", "", review_The_Sandwich_Club)
+review_Da_Mario_Karon<-gsub("tablet", "", review_Da_Mario_Karon)
+review_Subparod_Restaurant<-gsub("tablet", "", review_Subparod_Restaurant)
+review_D_Wine_Italian<-gsub("tablet", "", review_D_Wine_Italian)
+review_Fuji_Japanese_Restaurant<-gsub("tablet", "", review_Fuji_Japanese_Restaurant)
+review_Royal_India<-gsub("tablet", "", review_Royal_India)
+review_No_24_Bar<-gsub("tablet", "", review_No_24_Bar)
+review_Kusuma_Seafood<-gsub("tablet", "", review_Kusuma_Seafood)
+review_Wine_Connection_Deli<-gsub("tablet", "", review_Wine_Connection_Deli)
+review_Buffalo_Steak_House<-gsub("tablet", "", review_Buffalo_Steak_House)
+review_Albatross_Cafe<-gsub("tablet", "", review_Albatross_Cafe)
+review_Chekhoff_Restaurant<-gsub("tablet", "", review_Chekhoff_Restaurant)
+review_PaPa_Restaurant<-gsub("tablet", "", review_PaPa_Restaurant)
+review_Surin_Bay<-gsub("tablet", "", review_Surin_Bay)
+#Inspect the vectors after cleaning
+head(review_mrkobis)
+head(review_Amalfi)
+head(review_AnchorInn)
+head(review_Tony)
+head(review_Lucky13)
+head(review_BuffaloSteakHouse)
+head(review_Salvatore)
+head(review_shakers)
+head(review_Boulangerie_Chez_Nous)
+head(review_Mai_Khao_Seafood)
+head(review_Modena)
+head(review_Il_Cappero)
+head(review_After_Beach)
+head(review_The_Cook)
+head(review_Skye_Lake)
+head(review_Fuji_Japanese_Restaurant )
+head(review_The_Sandwich_Club)
+head(review_Da_Mario_Karon)
+head(review_Subparod_Restaurant)
+head(review_D_Wine_Italian)
+head(review_Fuji_Japanese_Restaurant)
+head(review_Royal_India)
+head(review_No_24_Bar)
+head(review_Kusuma_Seafood)
+head(review_Wine_Connection_Deli)
+head(review_Buffalo_Steak_House)
+head(review_Albatross_Cafe)
+head(review_Chekhoff_Restaurant)
+head(review_PaPa_Restaurant)
+head(review_Surin_Bay)
+#Converting the text vectors to corpus
+corpus_review_mrkobis <-Corpus(VectorSource(review_mrkobis))
+corpus_review_Amalfi<- Corpus(VectorSource(review_Amalfi))
+corpus_review_AnchorInn<-Corpus(VectorSource(review_AnchorInn))
+corpus_review_Tony<-Corpus(VectorSource(review_Tony))
+corpus_review_Lucky13<-Corpus(VectorSource(review_Lucky13))
+corpus_review_BuffaloSteakHouse<-Corpus(VectorSource(review_BuffaloSteakHouse))
+corpus_review_Salvatore<-Corpus(VectorSource(review_Salvatore))
+corpus_review_shakers<-Corpus(VectorSource(review_shakers))
+corpus_review_Boulangerie_Chez_Nous<-Corpus(VectorSource(review_Boulangerie_Chez_Nous))
+corpus_review_Mai_Khao_Seafood<-Corpus(VectorSource(review_Mai_Khao_Seafood))
+corpus_review_Modena<-Corpus(VectorSource(review_Modena))
+corpus_review_Il_Cappero<-Corpus(VectorSource(review_Il_Cappero))
+corpus_review_After_Beach<-Corpus(VectorSource(review_After_Beach))
+corpus_review_The_Cook<-Corpus(VectorSource(review_The_Cook))
+corpus_review_Skye_Lake<-Corpus(VectorSource(review_Skye_Lake))
+corpus_review_Fuji_Japanese_Restaurant <-Corpus(VectorSource(review_Fuji_Japanese_Restaurant ))
+corpus_review_The_Sandwich_Club<-Corpus(VectorSource(review_The_Sandwich_Club))
+corpus_review_Da_Mario_Karon<-Corpus(VectorSource(review_Da_Mario_Karon))
+corpus_review_Subparod_Restaurant<-Corpus(VectorSource(review_Subparod_Restaurant))
+corpus_review_D_Wine_Italian<-Corpus(VectorSource(review_D_Wine_Italian))
+corpus_review_Fuji_Japanese_Restaurant<-Corpus(VectorSource(review_Fuji_Japanese_Restaurant))
+corpus_review_Royal_India<-Corpus(VectorSource(review_Royal_India))
+corpus_review_No_24_Bar<-Corpus(VectorSource(review_No_24_Bar))
+corpus_review_Kusuma_Seafood<-Corpus(VectorSource(review_Kusuma_Seafood))
+corpus_review_Wine_Connection_Deli<-Corpus(VectorSource(review_Wine_Connection_Deli))
+corpus_review_Buffalo_Steak_House<-Corpus(VectorSource(review_Buffalo_Steak_House))
+corpus_review_Albatross_Cafe<-Corpus(VectorSource(review_Albatross_Cafe))
+corpus_review_Chekhoff_Restaurant<-Corpus(VectorSource(review_Chekhoff_Restaurant))
+corpus_review_PaPa_Restaurant<-Corpus(VectorSource(review_PaPa_Restaurant))
+corpus_review_Surin_Bay<-Corpus(VectorSource(review_Surin_Bay))
+#inspect the corpus
+corpus_review_mrkobis
+corpus_review_Amalfi
+corpus_review_AnchorInn
+corpus_review_Tony
+corpus_review_Lucky13
+corpus_review_BuffaloSteakHouse
+corpus_review_Salvatore
+corpus_review_shakers
+corpus_review_Boulangerie_Chez_Nous
+corpus_review_Mai_Khao_Seafood
+corpus_review_Modena
+corpus_review_Il_Cappero
+corpus_review_After_Beach
+corpus_review_The_Cook
+corpus_review_Skye_Lake
+corpus_review_Fuji_Japanese_Restaurant 
+corpus_review_The_Sandwich_Club
+corpus_review_Da_Mario_Karon
+corpus_review_Subparod_Restaurant
+corpus_review_D_Wine_Italian
+corpus_review_Fuji_Japanese_Restaurant
+corpus_review_Royal_India
+corpus_review_No_24_Bar
+corpus_review_Kusuma_Seafood
+corpus_review_Wine_Connection_Deli
+corpus_review_Buffalo_Steak_House
+corpus_review_Albatross_Cafe
+corpus_review_Chekhoff_Restaurant
+corpus_review_PaPa_Restaurant
+corpus_review_Surin_Bay
+#Clean up corpus by removing stop words and Whitespace
+corpus_review_mrkobis <- tm_map(corpus_review_mrkobis, removeWords,stopwords("english"))
+corpus_review_mrkobis <- tm_map(corpus_review_mrkobis, stripWhitespace)
+#inspect(corpus_review_mrkobis)
+
+corpus_review_Amalfi <- tm_map(corpus_review_Amalfi, removeWords,stopwords("english"))
+corpus_review_Amalfi <- tm_map(corpus_review_Amalfi, stripWhitespace)
+#inspect(corpus_review_Amalfi)
+
+corpus_review_AnchorInn <- tm_map(corpus_review_AnchorInn, removeWords,stopwords("english"))
+corpus_review_AnchorInn <- tm_map(corpus_review_AnchorInn, stripWhitespace)
+#inspect(corpus_review_AnchorInn)
+
+corpus_review_Tony <- tm_map(corpus_review_Tony, removeWords,stopwords("english"))
+corpus_review_Tony <- tm_map(corpus_review_Tony, stripWhitespace)
+#inspect(corpus_review_Tony)
+
+
+corpus_review_Lucky13 <- tm_map(corpus_review_Lucky13, removeWords,stopwords("english"))
+corpus_review_Lucky13 <- tm_map(corpus_review_Lucky13, stripWhitespace)
+#inspect(corpus_review_Lucky13)
+
+
+corpus_review_BuffaloSteakHouse <- tm_map(corpus_review_BuffaloSteakHouse, removeWords,stopwords("english"))
+corpus_review_BuffaloSteakHouse <- tm_map(corpus_review_BuffaloSteakHouse, stripWhitespace)
+#inspect(corpus_review_BuffaloSteakHouse)
+
+corpus_review_Salvatore <- tm_map(corpus_review_Salvatore, removeWords,stopwords("english"))
+corpus_review_Salvatore <- tm_map(corpus_review_Salvatore, stripWhitespace)
+#inspect(corpus_review_Salvatore)
+
+corpus_review_shakers <- tm_map(corpus_review_shakers, removeWords,stopwords("english"))
+corpus_review_shakers <- tm_map(corpus_review_shakers, stripWhitespace)
+#inspect(corpus_review_shakers)
+
+corpus_review_Boulangerie_Chez_Nous <- tm_map(corpus_review_Boulangerie_Chez_Nous, removeWords,stopwords("english"))
+corpus_review_Boulangerie_Chez_Nous <- tm_map(corpus_review_Boulangerie_Chez_Nous, stripWhitespace)
+#inspect(corpus_review_Boulangerie_Chez_Nous)
+
+corpus_review_Mai_Khao_Seafood <- tm_map(corpus_review_Mai_Khao_Seafood, removeWords,stopwords("english"))
+corpus_review_Mai_Khao_Seafood <- tm_map(corpus_review_Mai_Khao_Seafood, stripWhitespace)
+#inspect(corpus_review_Mai_Khao_Seafood)
+
+corpus_review_Modena <- tm_map(corpus_review_Modena, removeWords,stopwords("english"))
+corpus_review_Modena <- tm_map(corpus_review_Modena, stripWhitespace)
+#inspect(corpus_review_Modena)
+
+corpus_review_Il_Cappero <- tm_map(corpus_review_Il_Cappero, removeWords,stopwords("english"))
+corpus_review_Il_Cappero <- tm_map(corpus_review_Il_Cappero, stripWhitespace)
+#inspect(corpus_review_Il_Cappero)
+
+corpus_review_After_Beach <- tm_map(corpus_review_After_Beach, removeWords,stopwords("english"))
+corpus_review_After_Beach <- tm_map(corpus_review_After_Beach, stripWhitespace)
+#inspect(corpus_review_After_Beach)
+
+corpus_review_The_Cook <- tm_map(corpus_review_The_Cook, removeWords,stopwords("english"))
+corpus_review_The_Cook <- tm_map(corpus_review_The_Cook, stripWhitespace)
+#inspect(corpus_review_The_Cook)
+
+
+corpus_review_Skye_Lake <- tm_map(corpus_review_Skye_Lake, removeWords,stopwords("english"))
+corpus_review_Skye_Lake <- tm_map(corpus_review_Skye_Lake, stripWhitespace)
+#inspect(corpus_review_Skye_Lake)
+
+corpus_review_Fuji_Japanese_Restaurant  <- tm_map(corpus_review_Fuji_Japanese_Restaurant , removeWords,stopwords("english"))
+corpus_review_Fuji_Japanese_Restaurant  <- tm_map(corpus_review_Fuji_Japanese_Restaurant , stripWhitespace)
+#inspect(corpus_review_Fuji_Japanese_Restaurant )
+
+corpus_review_The_Sandwich_Club <- tm_map(corpus_review_The_Sandwich_Club, removeWords,stopwords("english"))
+corpus_review_The_Sandwich_Club <- tm_map(corpus_review_The_Sandwich_Club, stripWhitespace)
+#inspect(corpus_review_The_Sandwich_Club)
+
+corpus_review_Da_Mario_Karon <- tm_map(corpus_review_Da_Mario_Karon, removeWords,stopwords("english"))
+corpus_review_Da_Mario_Karon <- tm_map(corpus_review_Da_Mario_Karon, stripWhitespace)
+#inspect(corpus_review_Da_Mario_Karon)
+
+corpus_review_Subparod_Restaurant <- tm_map(corpus_review_Subparod_Restaurant, removeWords,stopwords("english"))
+corpus_review_Subparod_Restaurant <- tm_map(corpus_review_Subparod_Restaurant, stripWhitespace)
+#inspect(corpus_review_Subparod_Restaurant)
+
+
+corpus_review_D_Wine_Italian <- tm_map(corpus_review_D_Wine_Italian, removeWords,stopwords("english"))
+corpus_review_D_Wine_Italian <- tm_map(corpus_review_D_Wine_Italian, stripWhitespace)
+#inspect(corpus_review_D_Wine_Italian)
+
+corpus_review_Fuji_Japanese_Restaurant <- tm_map(corpus_review_Fuji_Japanese_Restaurant, removeWords,stopwords("english"))
+corpus_review_Fuji_Japanese_Restaurant <- tm_map(corpus_review_Fuji_Japanese_Restaurant, stripWhitespace)
+#inspect(corpus_review_Fuji_Japanese_Restaurant)
+
+
+corpus_review_Royal_India <- tm_map(corpus_review_Royal_India, removeWords,stopwords("english"))
+corpus_review_Royal_India <- tm_map(corpus_review_Royal_India, stripWhitespace)
+#inspect(corpus_review_Royal_India)
+
+
+corpus_review_No_24_Bar <- tm_map(corpus_review_No_24_Bar, removeWords,stopwords("english"))
+corpus_review_No_24_Bar <- tm_map(corpus_review_No_24_Bar, stripWhitespace)
+#inspect(corpus_review_No_24_Bar)
+
+corpus_review_Kusuma_Seafood <- tm_map(corpus_review_Kusuma_Seafood, removeWords,stopwords("english"))
+corpus_review_Kusuma_Seafood <- tm_map(corpus_review_Kusuma_Seafood, stripWhitespace)
+#inspect(corpus_review_Kusuma_Seafood)
+
+
+corpus_review_Wine_Connection_Deli <- tm_map(corpus_review_Wine_Connection_Deli, removeWords,stopwords("english"))
+corpus_review_Wine_Connection_Deli <- tm_map(corpus_review_Wine_Connection_Deli, stripWhitespace)
+#inspect(corpus_review_Wine_Connection_Deli)
+
+
+
+corpus_review_Buffalo_Steak_House <- tm_map(corpus_review_Buffalo_Steak_House, removeWords,stopwords("english"))
+corpus_review_Buffalo_Steak_House <- tm_map(corpus_review_Buffalo_Steak_House, stripWhitespace)
+#inspect(corpus_review_Buffalo_Steak_House)
+
+
+corpus_review_Albatross_Cafe <- tm_map(corpus_review_Albatross_Cafe, removeWords,stopwords("english"))
+corpus_review_Albatross_Cafe <- tm_map(corpus_review_Albatross_Cafe, stripWhitespace)
+#inspect(corpus_review_Albatross_Cafe)
+
+
+
+corpus_review_Chekhoff_Restaurant <- tm_map(corpus_review_Chekhoff_Restaurant, removeWords,stopwords("english"))
+corpus_review_Chekhoff_Restaurant <- tm_map(corpus_review_Chekhoff_Restaurant, stripWhitespace)
+#inspect(corpus_review_Chekhoff_Restaurant)
+
+
+
+corpus_review_PaPa_Restaurant <- tm_map(corpus_review_PaPa_Restaurant, removeWords,stopwords("english"))
+corpus_review_PaPa_Restaurant <- tm_map(corpus_review_PaPa_Restaurant, stripWhitespace)
+#inspect(corpus_review_PaPa_Restaurant)
+
+
+corpus_review_Surin_Bay <- tm_map(corpus_review_Surin_Bay, removeWords,stopwords("english"))
+corpus_review_Surin_Bay <- tm_map(corpus_review_Surin_Bay, stripWhitespace)
+#inspect(corpus_review_Surin_Bay)
+
+#Stem the words to their root of all reviews present in the corpus
+library("SnowballC")
+stem_corpus_review_mrkobis <- tm_map(corpus_review_mrkobis, stemDocument)
+stem_corpus_review_Amalfi <- tm_map(corpus_review_Amalfi, stemDocument)
+stem_corpus_review_AnchorInn <- tm_map(corpus_review_AnchorInn, stemDocument)
+stem_corpus_review_Tony <- tm_map(corpus_review_Tony, stemDocument)
+stem_corpus_review_Lucky13 <- tm_map(corpus_review_Lucky13, stemDocument)
+stem_corpus_review_BuffaloSteakHouse <- tm_map(corpus_review_BuffaloSteakHouse, stemDocument)
+stem_corpus_review_Salvatore <- tm_map(corpus_review_Salvatore, stemDocument)
+stem_corpus_review_shakers <- tm_map(corpus_review_shakers, stemDocument)
+stem_corpus_review_Boulangerie_Chez_Nous<- tm_map(corpus_review_Boulangerie_Chez_Nous, stemDocument)
+stem_corpus_review_Mai_Khao_Seafood<- tm_map(corpus_review_Mai_Khao_Seafood, stemDocument)
+stem_corpus_review_Modena<- tm_map(corpus_review_Modena, stemDocument)
+stem_corpus_review_Il_Cappero<- tm_map(corpus_review_Il_Cappero, stemDocument)
+stem_corpus_review_After_Beach<- tm_map(corpus_review_After_Beach, stemDocument)
+stem_corpus_review_The_Cook<- tm_map(corpus_review_The_Cook, stemDocument)
+stem_corpus_review_Skye_Lake<- tm_map(corpus_review_Skye_Lake, stemDocument)
+stem_corpus_review_Fuji_Japanese_Restaurant <- tm_map(corpus_review_Fuji_Japanese_Restaurant , stemDocument)
+stem_corpus_review_The_Sandwich_Club<- tm_map(corpus_review_The_Sandwich_Club, stemDocument)
+stem_corpus_review_Da_Mario_Karon<- tm_map(corpus_review_Da_Mario_Karon, stemDocument)
+stem_corpus_review_Subparod_Restaurant<- tm_map(corpus_review_Subparod_Restaurant, stemDocument)
+stem_corpus_review_D_Wine_Italian<- tm_map(corpus_review_D_Wine_Italian, stemDocument)
+stem_corpus_review_Fuji_Japanese_Restaurant<- tm_map(corpus_review_Fuji_Japanese_Restaurant, stemDocument)
+stem_corpus_review_Royal_India<- tm_map(corpus_review_Royal_India, stemDocument)
+stem_corpus_review_No_24_Bar<- tm_map(corpus_review_No_24_Bar, stemDocument)
+stem_corpus_review_Kusuma_Seafood<- tm_map(corpus_review_Kusuma_Seafood, stemDocument)
+stem_corpus_review_Wine_Connection_Deli<- tm_map(corpus_review_Wine_Connection_Deli, stemDocument)
+stem_corpus_review_Buffalo_Steak_House<- tm_map(corpus_review_Buffalo_Steak_House, stemDocument)
+stem_corpus_review_Albatross_Cafe<- tm_map(corpus_review_Albatross_Cafe, stemDocument)
+stem_corpus_review_Chekhoff_Restaurant<- tm_map(corpus_review_Chekhoff_Restaurant, stemDocument)
+stem_corpus_review_PaPa_Restaurant<- tm_map(corpus_review_PaPa_Restaurant, stemDocument)
+stem_corpus_review_Surin_Bay<- tm_map(corpus_review_Surin_Bay, stemDocument)
+
+#Load the positive and negative lexicon data
+positive_lexicon <- read.csv("positive-lexicon.txt")
+negative_lexicon <- read.csv("negative-lexicon.txt")
+
+#inspect lexicons
+
+head(positive_lexicon)
+tail(positive_lexicon)
+
+head(negative_lexicon)
+tail(negative_lexicon)
+
+
+#Creating a function for sentimental analysis
+
+
+
+sentiment <- function(stem_corpus)
+{
+  #generate wordclouds
+  wordcloud(stem_corpus,
+            min.freq = 3,
+            colors=brewer.pal(8, "Dark2"),
+            random.color = TRUE,
+            max.words = 100)
+  
+  #Calculating the count of total positive and negative words in each review
+  
+  #Create variables and vectors
+  total_pos_count <- 0
+  total_neg_count <- 0
+  pos_count_vector <- c()
+  neg_count_vector <- c()
+  #Calculate the size of the corpus
+  size <- length(stem_corpus)
+  for(i in 1:size)
+  {
+    #All the words in current review
+    corpus_words<- list(strsplit(stem_corpus[[i]]$content, split = " "))
+    
+    #positive words in current review
+    pos_count <-length(intersect(unlist(corpus_words), unlist(positive_lexicon)))
+    #negative words in current review
+    neg_count <- length(intersect(unlist(corpus_words), unlist(negative_lexicon)))
+    total_pos_count <- total_pos_count + pos_count ## overall positive count
+    total_neg_count <- total_neg_count + neg_count ## overall negative count
+  }
+  
+  #Calculating overall percentage of positive and negative words of all the reviews
+  total_pos_count ## overall positive count
+  total_neg_count ## overall negative count
+  total_count <- total_pos_count + total_neg_count
+  overall_positive_percentage <- (total_pos_count*100)/total_count
+  overall_negative_percentage <- (total_neg_count*100)/total_count
+  overall_positive_percentage ## overall positive percentage
+  
+  #Create a dataframe with all the positive and negative reviews
+  df<-data.frame(Review_Type=c("Postive","Negitive"),
+                 Count=c(total_pos_count ,total_neg_count ))
+  print(df) #Print
+  overall_positive_percentage<-paste("Percentage of Positive Reviews:",
+                                     round(overall_positive_percentage,2),"%")
+  return(overall_positive_percentage)
+}
+
+#.Use sentiment() function and calculate the Percentage of Positive Reviews
+
+
+sentiment(stem_corpus_review_mrkobis)
+sentiment(stem_corpus_review_Amalfi)
+sentiment(stem_corpus_review_AnchorInn)
+sentiment(stem_corpus_review_Tony)
+sentiment(stem_corpus_review_Lucky13)
+sentiment(stem_corpus_review_BuffaloSteakHouse)
+sentiment(stem_corpus_review_Salvatore)
+sentiment(stem_corpus_review_shakers)
+sentiment(stem_corpus_review_Boulangerie_Chez_Nous)
+sentiment(stem_corpus_review_Mai_Khao_Seafood)
+sentiment(stem_corpus_review_Modena)
+sentiment(stem_corpus_review_Il_Cappero)
+sentiment(stem_corpus_review_After_Beach)
+sentiment(stem_corpus_review_The_Cook)
+sentiment(stem_corpus_review_Skye_Lake)
+sentiment(stem_corpus_review_Fuji_Japanese_Restaurant )
+sentiment(stem_corpus_review_The_Sandwich_Club)
+sentiment(stem_corpus_review_Da_Mario_Karon)
+sentiment(stem_corpus_review_Subparod_Restaurant)
+sentiment(stem_corpus_review_D_Wine_Italian)
+sentiment(stem_corpus_review_Fuji_Japanese_Restaurant)
+sentiment(stem_corpus_review_Royal_India)
+sentiment(stem_corpus_review_No_24_Bar)
+sentiment(stem_corpus_review_Kusuma_Seafood)
+sentiment(stem_corpus_review_Wine_Connection_Deli)
+sentiment(stem_corpus_review_Buffalo_Steak_House)
+sentiment(stem_corpus_review_Albatross_Cafe)
+sentiment(stem_corpus_review_Chekhoff_Restaurant)
+sentiment(stem_corpus_review_PaPa_Restaurant)
+sentiment(stem_corpus_review_Surin_Bay)
